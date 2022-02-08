@@ -24,10 +24,14 @@
             $p1->depositar(300);
             $p2->depositar(500);
 
-            $p2->sacar(100);
+            $p1->sacar(338);
+            $p2->sacar(1000);
 
             $p1->pagarMensal();
             $p2->pagarMensal();
+
+            $p1->fecharConta();
+            $p2->fecharConta();
 
             print_r($p1);
             print_r($p2);

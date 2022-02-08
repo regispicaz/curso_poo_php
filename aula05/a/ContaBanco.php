@@ -19,13 +19,14 @@ class ContaBanco{
         }
     }
 
-    public function fecharConta($saldo){
-        if  ($this->getSaldo > 0){
+    public function fecharConta(){
+        if  ($this->getSaldo() > 0){
             echo"<p>[ERRO]A conta ainda tem dinheiro</p>";
-        }elseif($this->getSaldo < 0){
+        }elseif($this->getSaldo() < 0){
             echo"<p>[ERRO] A conta está com saldo negativo</p>";
         }else{
             $this->setStatus(false);
+            echo"<p>" . $this->getDono() ." sua conta foi encerrada com sucesso</p>";
         }
     }
 
@@ -41,7 +42,7 @@ class ContaBanco{
 
     public function sacar($vlr){
         if($this->getStatus == true){
-            if($this->getSaldo() > $vlr){
+            if($this->getSaldo() >= $vlr){
                 $this->setSaldo($this->getSaldo() - $vlr);
                 echo"<p>Saque de R$ $vlr autorizado na conta de ". $this->getDono(). "</p>";
             }else{
