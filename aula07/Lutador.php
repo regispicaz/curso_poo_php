@@ -1,162 +1,143 @@
 <?php
 
-class Lutador
-{
-    //Atributos
+Class Lutador{
     private $nome;
     private $nacionalidade;
     private $idade;
     private $altura;
-    protected $peso;
+    private $peso;
     private $categoria;
-    protected $vitorias;
-    protected $derrotas;
-    protected $empates;
+    private $vitorias;
+    private $derrotas;
+    private $empates;
 
-    //Métodos
-    public function apresentar()
-    {
-        echo "<p>---------------------------------</p>";
-        echo "<p>Nome: {$this->getNome()}</p>";
-        echo "<p>Origem: {$this->getNacionalidade()}</p>}";
-        echo "<p>Idade: {$this->getIdade()}</p>";
-        echo "<p>Altura: {$this->getAltura()}</p>";
-        echo "<p>Peso: {$this->getPeso()}";
-        echo "<p>Categoria: {$this->getCategoria()}";
-        echo "<p>Vitorias: {$this->getVitoria()}";
-        echo "<p>Derrota: {$this->getDerrota()}";
-        echo "<p>Empates: {$this->getEmpate()}";
-    }
-
-    public function status()
-    {
-        echo "<p>O lutador {$this->getNome()} é um peso {$this->getCategoria()} com {$this->getVitoria()} vitorias, {$this->getDerrota()} derrotas e {$this->getEmpate()} empates";
-    }
-    public function ganharLuta()
-    {
-        $this->setVitoria($this->getVitoria() + 1);
-    }
-    public function perderLuta()
-    {
-        $this->setDerrota($this->getDerrota() + 1);
-    }
-    public function empatarLuta()
-    {
-        $this->setEmpate($this->getEmpate() + 1);
-
-    }
-
-    //Métodos Especiais
-    public function __construct($no, $na, $id, $al, $ps, $vi, $de, $em)
-    {
+    
+    function __construct($no, $na, $id, $al, $pe, $vi, $de, $em){
         $this->nome = $no;
         $this->nacionalidade = $na;
         $this->idade = $id;
         $this->altura = $al;
-        $this->setPeso($ps);
-        $this->vitoria = $vi;
-        $this->derrota = $de;
-        $this->empate = $em;
+        $this->setPeso($pe);
+        $this->vitorias = $vi;
+        $this->derrotas = $de;
+        $this->empates = $em;
     }
 
-    public function getNome()
-    {
+
+    function apresentar(){
+        echo "<p>-----------------------------</p>";
+        echo "<p>CHEGOU A HORA! O lutador {$this->getNome()}</p>";
+        echo "<p>veio diretamente de {$this->getNacionalidade()}</p>";
+        echo "<p>tem {$this->getIdade()} anos e pesa {$this->getPeso()} KG.</p>";
+        echo "<br> Ele tem {$this->getVitorias()} vitórias,";
+        echo " {$this->getDerrotas()} derrotas e {$this->getEmpates()} empates<br>";
+    }
+
+    function status(){
+        echo "<p>------------------------------</p>";
+        echo "<p>{$this->getNome()} é um peso {$this->getCategoria()}</p>";
+        echo "<p>e já ganhou {$this->getVitorias()} vezes,</p>";
+        echo "<p>perdeu {$this->getDerrotas()} vezes e</p>";
+        echo "<p>empatou {$this->getEmpates()} vezes</p><br>";
+
+    }
+
+    function ganharLuta(){
+        $this->setVitorias($this->getVitorias() + 1);
+    }
+
+    function perderLuta(){
+        $this->setDerrotas($this->getDerrotas() + 1);
+    }
+
+    function empatarLuta(){
+        $this->setEmpates($this->getEmpates() + 1);
+    }
+
+
+
+    function getNome(){
         return $this->nome;
     }
-
-    public function getNacionalidade()
-    {
+    
+    function getNacionalidade(){
         return $this->nacionalidade;
     }
-
-    public function getIdade()
-    {
+    
+    function getIdade(){
         return $this->idade;
     }
 
-    public function getAltura()
-    {
+    function getAltura(){
         return $this->altura;
     }
 
-    public function getPeso()
-    {
+    function getPeso(){
         return $this->peso;
     }
 
-    public function getCategoria()
-    {
+    function getCategoria(){
         return $this->categoria;
     }
-
-    public function getVitoria()
-    {
+    
+    function getVitorias(){
         return $this->vitorias;
     }
 
-    public function getDerrota()
-    {
+    function getDerrotas(){
         return $this->derrotas;
     }
 
-    public function getEmpate()
-    {
+    function getEmpates(){
         return $this->empates;
     }
 
-    public function setNome($nome)
-    {
+
+
+    function setNome($nome){
         $this->nome = $nome;
     }
 
-    public function setNacionalidade($nacionalidade)
-    {
+    function setNacionalidade($nacionalidade){
         $this->nacionalidade = $nacionalidade;
     }
 
-    public function setIdade($idade)
-    {
+    function setIdade($idade){
         $this->idade = $idade;
     }
 
-    public function setAltura($altura)
-    {
+    function setAltura($altura){
         $this->altura = $altura;
     }
 
-    public function setPeso($peso)
-    {
+    function setPeso($peso){
         $this->peso = $peso;
         $this->setCategoria();
     }
 
-    private function setCategoria()
-    {
-        if ($this->getPeso() < 50) {
-            $this->categoria = "Invalido";
-        } elseif ($this->getPeso() < 75) {
+    private function setCategoria(){
+        if($this->peso < 52.2){
+            $this->categoria = "Inválida";
+        } elseif($this->peso <= 70.3) {
             $this->categoria = "Leve";
-        } elseif ($this->getPeso() < 85) {
-            $this->categoria = "Medio";
-        } elseif ($this->getPeso() < 100) {
+        } elseif($this->peso <= 83.9){
+            $this->categoria = "Médio";
+        } elseif($this->peso <= 120.2){
             $this->categoria = "Pesado";
         } else {
-            $this->categoria = "Invalido";
+            $this->categoria = "Inválido";
         }
     }
 
-    public function setVitoria($vi)
-    {
-        $this->setVitoria($this->getVitoria() + 1);
+    function setVitorias($vitorias){
+        $this->vitorias = $vitorias;
     }
 
-    public function setDerrota($de)
-    {
-        $this->setDerrota($this->getDerrota() + 1);
+    function setDerrotas($derrotas){
+        $this->derrotas = $derrotas;
     }
 
-    public function setEmpate($em)
-    {
-        $this->setEmpate($this->getEmpate() + 1);
+    function setEmpates($empates){
+        $this->empates = $empates;
     }
 }
