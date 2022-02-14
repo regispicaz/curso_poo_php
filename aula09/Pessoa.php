@@ -1,49 +1,45 @@
 <?php
 
+
 class Pessoa{
-    //Atributos
-    private $nome, $idade, $sexo;
+    private $nome;
+    private $idade;
+    private $sexo;
 
-    //Métodos
-    public function fazerAniversario(){
-        $this->getIdade()+1;
+
+    function __construct($nome, $idade, $sexo){
+        $this->nome = $nome;
+        $this->idade = $idade;
+        $this->sexo = $sexo;
     }
 
-    //Método Construtor
-    public function __construct($nome, $idade, $sexo){
-        $this-> nome = $nome;
-        $this-> idade = $idade;
-        $this-> sexo = $sexo;
+
+    function fazerAniversario(){
+        $this->idade++;
     }
 
-    //GettersSetters
-    public function getNome()
-    {
+
+    function getNome(){
         return $this->nome;
     }
 
-    public function setNome($nome)
-    {
-        $this->nome = $nome;
-    }
-
-    public function getIdade()
-    {
+    function getIdade(){
         return $this->idade;
     }
 
-    public function setIdade($idade)
-    {
-        $this->idade = $idade;
-    }
-
-    public function getSexo()
-    {
+    function getSexo(){
         return $this->sexo;
     }
 
-    public function setSexo($sexo)
-    {
+    function setNome($nome){
+        $this->nome = $nome;
+    }
+
+    function setIdade($idade){
+        $this->idade = $idade;
+    }
+
+    function setSexo($sexo){
         $this->sexo = $sexo;
     }
 }

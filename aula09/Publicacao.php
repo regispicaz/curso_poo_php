@@ -1,19 +1,9 @@
 <?php
 
-class Publicacao{
-    public function abrir(){
-
-    }
-    public function fechar(){
-
-    }
-    public function folear($p){
-
-    }
-    public function avancar(){
-
-    }
-    public function voltar(){
-
-    }
+interface Publicacao{
+    function abrir();
+    function fechar();
+    function folhear($p);
+    function avancarPag();
+    function voltarPag();
 }

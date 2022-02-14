@@ -8,21 +8,27 @@
 </head>
 <body>
     <pre>
-        <?php
-            require_once 'Pessoa';
+    <?php
+            require_once 'Pessoa.php';
             require_once 'Livro.php';
 
-            $pe[0] = new Pessoa("Fulano", 40, "M");
-            $pe[1] = new Pessoa("Josefina", 32, "F");
+            $p[0] = new Pessoa("Pedro", 22, "M");
+            $p[1] = new Pessoa("Maria", 31, "F");
 
-            $lv[0] = new Livro("PHP Básico", "João Abelar", 250, $pes[0]);
-            $lv[1] = new Livro("PHP POO", "Paula Silveira", 400, $pes[1]);
-            $lv[2] = new Livro("PHP Avançado", "Henri da Silva", 800, $pes[1]);
-
-            print_r($lv[0]);
-            echo "Helo<br>";
+            $l[0] = new Livro("PHP Básico", "José da Silva", 300, $p[0]);
+            $l[1] = new Livro("POO com PHP", "Maria de Souza", 500, $p[0]);
+            $l[2] = new Livro("PHP Avançado", "Ana Paula", 800, $p[1]);
             
-        ?>
+            $l[0]->abrir();
+            $l[0]->folhear(10);
+            $l[0]->voltarPag();
+            $l[0]->detalhes();
+
+            $l[1]->detalhes();
+
+            $l[2]->detalhes();
+            
+            ?>
     </pre>
 </body>
 </html>
