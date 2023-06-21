@@ -11,8 +11,8 @@
         function rabiscar(){
 
             if($this->tampada == true){
-                print "<p>Não posso rabiscar, pois a caneta está tampada</p>";
-            }else print "<p>Estou rabiscando...</p>";
+                echo "<p>Não posso rabiscar, pois a caneta está tampada</p>";
+            }else echo "<p>Estou rabiscando...</p>";
 
         }
 

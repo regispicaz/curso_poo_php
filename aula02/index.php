@@ -18,10 +18,10 @@
         $c1->tampar();//chamando o método tampar || podemos também neste caso chamar o método destampar
         $c1->rabiscar();//Chamando o método Rabiscar da clase caneta
         //var_dump($c1);
-        print "<br/>";
+        echo "<br/>";
         print_r($c1);
-        print "<br/>";
-        print "<br/>";
+        echo "<br/>";
+        echo "<br/>";
 
         $c2 = new Caneta;//Instânciando novo objeto
         $c2->cor = "Azul";
