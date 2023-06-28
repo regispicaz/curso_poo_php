@@ -95,7 +95,7 @@ class ContaBanco{
 
     if($this->getStatus()){
       if($this->getSaldo() > 0){
-        $this->setSaldo($this->getSaldo - $v);
+        $this->setSaldo($this->getSaldo() - $v);
       }else{
         echo "<p>Problemas com a conta, não posso cobrar.</p>";
       }
@@ -105,6 +105,8 @@ class ContaBanco{
 
   // Métodos Especiais
 
+
+  //Metodo construtor
   public function __construct(){
     $this->setSaldo(0);
     $this->setStatus(false);
@@ -113,6 +115,7 @@ class ContaBanco{
     echo "<p>Conta criada com sucesso.</p>";
   }
 
+  // Getters e Setters
   public function getnumConta(){
     return $this->numConta;
   }

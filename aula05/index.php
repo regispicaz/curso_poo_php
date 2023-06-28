@@ -17,22 +17,27 @@
 
     <pre>
         <?php
+            // Chamando o arquivo de classe no PHP
             require_once 'ContaBanco.php';
 
+            // Instanciando novos objetos
             $pessoa1 = new ContaBanco(); //Jubileu
             $pessoa2 = new ContaBanco(); //Creuza
 
+            // Atibuindo valores aos objetos $pessoaX
             $pessoa1->abrirConta("CP");
             $pessoa1->setDono('Jubileu');
+            $pessoa1->setnumConta(123);
             $pessoa1->sacar(10);
             $pessoa1->depositar(200);
-            $pessoa1->pagarMensal(); //Verificar metodo
+            $pessoa1->pagarMensal(-20); //Verificar metodo
 
             $pessoa2->abrirConta("CC");
             $pessoa2->setDono('Creuza');
+            $pessoa2->setnumConta(122);
 
+            // Mostrando valores doc objetos no navegador
             print_r($pessoa1);
-
             print_r($pessoa2);
 
         ?>
