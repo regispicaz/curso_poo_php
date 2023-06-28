@@ -26,6 +26,8 @@
 
     print_r($xone);
 
+    echo "O console ". $xone->getModelo(). " da marca " . $xone->getMarca(). " utiliza a mídia " . $xone->getMedia() . ".";
+
   ?>
 </pre>
   
