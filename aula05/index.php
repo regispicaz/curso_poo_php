@@ -28,13 +28,16 @@
             $pessoa1->abrirConta("CP");
             $pessoa1->setDono('Jubileu');
             $pessoa1->setnumConta(123);
-            $pessoa1->sacar(10);
-            $pessoa1->depositar(200);
-            $pessoa1->pagarMensal(-20); //Verificar metodo
+            $pessoa1->pagarMensal();
 
             $pessoa2->abrirConta("CC");
             $pessoa2->setDono('Creuza');
             $pessoa2->setnumConta(122);
+            $pessoa2->pagarMensal();
+
+            $pessoa1->sacar(130);
+            $pessoa1->fecharConta();
+
 
             // Mostrando valores doc objetos no navegador
             print_r($pessoa1);

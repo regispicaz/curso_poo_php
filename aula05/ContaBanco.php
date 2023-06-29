@@ -41,6 +41,7 @@ class ContaBanco{
       echo("Conta em débito, não será possível encerra-lá");
     }else{
       $this->setStatus(false);
+      echo "<p>Conta de ". $this->getDono() ." com numero ". $this->getnumConta() . " foi encerrada com sucesso!</p>";
     }
   }
 
@@ -54,6 +55,7 @@ class ContaBanco{
 
     if($this->getStatus()){
       $this->setSaldo($this->getSaldo() + $v);
+      echo "<p>O valor de $v foi depositado na conta de ". $this->getDono() . "</p>";
     }else {
       echo "<p>conta encerrada, Não é possível depositar.</p>";
     }
@@ -68,8 +70,9 @@ class ContaBanco{
   public function sacar($v){
     
     if($this->getStatus()){
-      if($this->getSaldo() > 0){
+      if($this->getSaldo() >= $v){
         $this->setSaldo($this->getSaldo() - $v);
+        echo "<p>Saque de $v autorizado na conta de ". $this->getDono() . ".</p>";
       }else{
         echo "<p>Saldo insuficiente para realizar o saque</p>";
       }
@@ -85,21 +88,20 @@ class ContaBanco{
   *Retorna  : <nada>.
   *Descrição: verifica o tipo de conta e se há saldo para aplicar a taxa correspondente.
   */
-  public function pagarMensal($v){
+  public function pagarMensal(){
     
     if($this->getTipo() == "CC"){
       $v = 12;
-    }else {
+    }else if ($this->getTipo() == "CP"){
       $v = 20;
     }
 
     if($this->getStatus()){
-      if($this->getSaldo() > 0){
         $this->setSaldo($this->getSaldo() - $v);
+        echo "<p>Foi pago a mensalidade de $v na conta de" .$this->getDono() . ".</p>";
       }else{
         echo "<p>Problemas com a conta, não posso cobrar.</p>";
       }
-    }
 
   }
 
